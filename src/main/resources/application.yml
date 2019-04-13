@@ -1,5 +1,5 @@
 spring:
-  applicatin:
+  application:
     name: justice-league-parking-service
   datasource:
     url: jdbc:h2:mem:parking_service;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=FALSE;INIT=CREATE SCHEMA IF NOT EXISTS parking_service
