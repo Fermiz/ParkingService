@@ -1,9 +1,24 @@
-plugins {
-    id 'org.springframework.boot' version '2.1.4.RELEASE'
-    id 'java'
+
+buildscript {
+    repositories {
+        maven {url 'http://maven.aliyun.com/nexus/content/groups/public/'}
+        mavenLocal()
+        mavenCentral()
+    }
+    dependencies {
+        classpath("org.springframework.cloud:spring-cloud-contract-gradle-plugin:2.1.0.RELEASE")
+        classpath('com.h2database:h2:1.4.191')
+    }
 }
 
-apply plugin: 'io.spring.dependency-management'
+plugins {
+    // Apply the java plugin to add support for Java
+    id 'java'
+
+    // Apply the application plugin to add support for building an application
+    id 'application'
+    id 'org.springframework.boot' version '2.1.4.RELEASE'
+}
 
 group = 'com.thoughworks.justice-league'
 version = '0.0.1-SNAPSHOT'
@@ -15,7 +30,12 @@ configurations {
     }
 }
 
+apply plugin: 'io.spring.dependency-management'
+apply plugin: 'spring-cloud-contract'
+
 repositories {
+    maven {url 'http://maven.aliyun.com/nexus/content/groups/public/'}
+    mavenLocal()
     mavenCentral()
 }
 
@@ -27,12 +47,17 @@ dependencies {
     implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
     implementation 'org.springframework.boot:spring-boot-starter-web'
     implementation 'org.flywaydb:flyway-core'
+    implementation 'org.springframework.cloud:spring-cloud-starter-contract-stub-runner'
+    implementation 'org.springframework.cloud:spring-cloud-starter-openfeign'
     compileOnly 'org.projectlombok:lombok'
     runtimeOnly 'com.h2database:h2'
     annotationProcessor 'org.projectlombok:lombok'
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
-    testImplementation 'org.springframework.cloud:spring-cloud-starter-contract-stub-runner'
     testImplementation 'org.springframework.cloud:spring-cloud-starter-contract-verifier'
+    testImplementation 'org.mockito:mockito-core:2.7.22'
+    implementation 'commons-lang:commons-lang:2.3'
+    implementation 'io.springfox:springfox-swagger2:2.8.0'
+    implementation 'io.springfox:springfox-swagger-ui:2.8.0'
 }
 
 dependencyManagement {
@@ -40,3 +65,5 @@ dependencyManagement {
         mavenBom "org.springframework.cloud:spring-cloud-dependencies:${springCloudVersion}"
     }
 }
+
+bootRun.dependsOn generateClientStubs
