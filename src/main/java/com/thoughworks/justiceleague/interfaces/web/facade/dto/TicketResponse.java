@@ -1,12 +1,12 @@
 package com.thoughworks.justiceleague.interfaces.web.facade.dto;
 
+import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
-import lombok.NoArgsConstructor;
 
 @Builder
 @Data
-@NoArgsConstructor
+@AllArgsConstructor
 public class TicketResponse {
     private String ticketId;
 }
