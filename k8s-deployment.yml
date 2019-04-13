@@ -25,7 +25,7 @@ spec:
     spec:
       containers:
       - name: justice-league-parking-service
-        image: 076880417388.dkr.ecr.cn-northwest-1.amazonaws.com.cn/justice-league-parking-service:latest
+        image: DOCKER_IMAGE
         imagePullPolicy: Always
         ports:
         - containerPort: 8080
