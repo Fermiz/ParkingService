@@ -14,17 +14,17 @@ import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.when;
 
 @RunWith(MockitoJUnitRunner.class)
-public class TicketServiceFacadeForRestImplTest {
+public class TicketServiceFacadeImplTest {
 
     @Mock
     private ExternalParkingLotService externalParkingLotService;
 
-    private TicketServiceFacadeForRestImpl ticketServiceFacadeForRest;
+    private TicketServiceFacadeImpl ticketServiceFacadeForRest;
 
     @Test
     public void should_return_ticket() {
         //given
-        ticketServiceFacadeForRest = new TicketServiceFacadeForRestImpl(externalParkingLotService);
+        ticketServiceFacadeForRest = new TicketServiceFacadeImpl(externalParkingLotService);
         //when
         when(externalParkingLotService.createTicket(any(TicketRequest.class))).thenReturn(TicketResponse.builder().build());
         Ticket ticket = ticketServiceFacadeForRest.create(1L, "111");

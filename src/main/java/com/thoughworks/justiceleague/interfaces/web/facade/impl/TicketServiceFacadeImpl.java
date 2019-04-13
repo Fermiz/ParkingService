@@ -10,12 +10,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
-public class TicketServiceFacadeForRestImpl implements TicketServiceFacade {
+public class TicketServiceFacadeImpl implements TicketServiceFacade {
 
     private ExternalParkingLotService externalParkingLotService;
 
     @Autowired
-    public TicketServiceFacadeForRestImpl(ExternalParkingLotService externalParkingLotService) {
+    public TicketServiceFacadeImpl(ExternalParkingLotService externalParkingLotService) {
         this.externalParkingLotService = externalParkingLotService;
     }
 
