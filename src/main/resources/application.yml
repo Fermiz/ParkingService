@@ -41,3 +41,7 @@ eureka:
   client:
     service-url:
       defaultZone: http://eureka-server:8080/eureka/
+
+feign:
+  hystrix:
+    enabled: true
