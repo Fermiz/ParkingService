@@ -1,4 +1,6 @@
 spring:
+  profiles:
+    active: prod
   application:
     name: justice-league-parking-service
   datasource:
@@ -32,8 +34,7 @@ spring:
         trace: false
         web-allow-others: true
 
-parking-lot-service:
-  url: http://localhost:6565
+parking-lot-service: http://localhost:6565
 
 eureka:
   instance:
@@ -45,3 +46,12 @@ eureka:
 feign:
   hystrix:
     enabled: true
+
+---
+spring:
+  profiles: dev
+  parking-lot-service: http://localhost:6565
+---
+spring:
+  profiles: prod
+  parking-lot-service: justice-league-ticket-service

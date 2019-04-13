@@ -7,7 +7,7 @@ import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.stereotype.Component;
 import org.springframework.web.bind.annotation.PostMapping;
 
-@FeignClient(value = "justice-league-ticket-service")
+@FeignClient(value = "${parking-lot-service}")
 @Component
 public interface ExternalParkingLotService {
 
