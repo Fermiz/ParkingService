@@ -34,7 +34,7 @@ spring:
         trace: false
         web-allow-others: true
 
-parking-lot-service: http://localhost:6565
+parking-lot-service: justice-league-ticket-service
 
 eureka:
   instance:
