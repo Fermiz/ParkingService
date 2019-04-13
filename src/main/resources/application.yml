@@ -17,6 +17,11 @@ spring:
         event:
           merge:
             entity_copy_observer: allow
+
+  flyway:
+    locations: classpath:/db/migration
+    check-location: false
+
   h2:
     console:
       enabled: true
@@ -27,12 +32,3 @@ spring:
 
 parking-lot-service:
   url: http://localhost:6565
-
-wiremock:
-  server:
-    files:
-    stubs:
-      - file:build/stubs/**/mappings/**/*.json
-    port: 6565
-server:
-  port: 12306

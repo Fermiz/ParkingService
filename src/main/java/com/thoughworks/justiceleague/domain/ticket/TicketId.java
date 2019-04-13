@@ -11,7 +11,6 @@ import javax.persistence.Embeddable;
 
 @Embeddable
 @Builder
-@Data
 public class TicketId implements ValueObject<TicketId> {
 
     @Column(name = "ticket_id")
